@@ -1,0 +1,19 @@
+.search {
+  background: #f4f4f4;
+  padding: 4rem 0;
+}
+
+.searchGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1rem;
+}
+
+.searchInput {
+  grid-column: span 3;
+}
+
+.searchButton {
+  grid-column: span 2;
+  align-self: end;
+}
