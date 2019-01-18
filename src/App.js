@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Provider } from 'unstated';
 
 import './style/app.scss';
 
@@ -6,7 +7,11 @@ import Home from './pages/Home';
 
 class App extends Component {
   render() {
-    return <Home />;
+    return (
+      <Provider>
+        <Home />
+      </Provider>
+    );
   }
 }
 

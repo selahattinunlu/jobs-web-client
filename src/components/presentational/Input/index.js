@@ -9,6 +9,7 @@ const Input = (props) => {
       <label className={style.label}>{props.labelText}</label>
       <input
         type="text"
+        onChange={props.onChange}
         className={style.input}
         value={props.value}></input>
     </div>

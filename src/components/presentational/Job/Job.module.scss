@@ -1,0 +1,45 @@
+.job {
+  background: #f7f7f7;
+  width: 100%;
+  padding: 1rem 1rem;
+  display: grid;
+  grid-row-gap: .5rem;
+  grid-template-areas:
+    "workTime workTime workTime workTime date"
+    "title title title title title"
+    "location location location location location";
+
+  &:nth-child(even) {
+    background: white;
+  }
+}
+
+.title {
+  grid-area: title;
+  color: #929292;
+  font-size: 1.4rem;
+
+  span {
+    font-size: 1rem;
+    color: #e36b7d;
+  }
+}
+
+.workType {
+  grid-area: workTime;
+  color: #bbb;
+  font-size: 1rem;
+}
+
+.date {
+  grid-area: date;
+  justify-self: end;
+  color: #bbb;
+  font-size: 1rem;
+}
+
+.location {
+  grid-area: location;
+  color: #bbb;
+  font-size: 1rem;
+}
