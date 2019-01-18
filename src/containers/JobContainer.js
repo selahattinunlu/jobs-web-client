@@ -16,7 +16,7 @@ export default class JobContainer extends Container {
 
   async getJobs(page = 1) {
     return new Promise((resolve, reject) => {
-      const jobs = Object.assign([], this.state.jobs);
+      let jobs = Object.assign([], this.state.jobs);
       let [startRange, endRange] = [0, 10];
 
       if (page > 1) {
@@ -24,9 +24,11 @@ export default class JobContainer extends Container {
         endRange = 10 * page;
       }
 
+      jobs.push(...positions.slice(startRange, endRange));
+
       setTimeout(() => {
         this.setState({
-          jobs: positions.slice(startRange, endRange),
+          jobs,
           totalJobs: positions.length,
           page,
         })

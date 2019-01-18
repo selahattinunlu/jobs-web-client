@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import style from './Job.module.scss';
 
@@ -10,7 +11,7 @@ const Job = (props) => {
         {props.type}
       </div>
       <div className={style.title}>
-        {props.title} <span>| {props.company}</span>
+        <Link to={`/job/${props.id}`}>{props.title}</Link> <span>| {props.company}</span>
       </div>
       <div className={style.location}>
         {props.location}
