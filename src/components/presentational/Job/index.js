@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom';
 
 import style from './Job.module.scss';
 
+const formatDate = (date) => {
+  const dateObj = new Date(date);
+  return dateObj.toLocaleDateString('en-us', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+}
+
 const Job = (props) => {
   return (
     <div className={style.job}>
@@ -17,7 +26,7 @@ const Job = (props) => {
         {props.location}
       </div>
       <div className={style.date}>
-        {props.date}
+        {formatDate(props.date)}
       </div>
     </div>
   )

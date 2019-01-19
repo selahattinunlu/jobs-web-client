@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Loader from 'react-loader-spinner';
 import style from './Jobs.module.scss';
 import Job from '../../presentational/Job';
 import Button from '../../presentational/Button';
@@ -7,6 +8,14 @@ import { jobContainer } from '../../../containers';
 
 export default class Jobs extends Component {
   renderJobs() {
+    if (jobContainer.state.loading) {
+      return (
+        <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+          <Loader type="Grid" color="#df6f81" height={50} width={50} />
+        </div>
+      );
+    }
+
     return jobContainer.state.jobs.map(job => {
       return (
         <Job
@@ -22,6 +31,10 @@ export default class Jobs extends Component {
   }
 
   renderResultDescription() {
+    if (jobContainer.state.loading) {
+      return;
+    }
+
     return (
       <Fragment>
         Showing {10 * jobContainer.state.page} of <span>{jobContainer.state.totalJobs}</span> jobs
@@ -30,14 +43,34 @@ export default class Jobs extends Component {
   }
 
   async loadMore() {
+    await jobContainer.setState({
+      loadingMore: true
+    });
+
     const page = jobContainer.state.page + 1;
     await jobContainer.getJobs(page);
+
+    jobContainer.setState({
+      loadingMore: false
+    });
   }
 
   renderLoadMoreButton() {
     const { state } = jobContainer;
 
-    if (state.jobs.length >= state.jobs.totalJobs) {
+    if (state.loading) {
+      return;
+    }
+
+    if (state.loadingMore) {
+      return (
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: 20}}>
+          <Loader type="Oval" color="#df6f81" height={50} width={50} />
+        </div>
+      )
+    }
+
+    if (state.jobs.length >= state.totalJobs) {
       return;
     }
 

@@ -16,10 +16,6 @@ export default class Home extends Component {
   }
 
   renderJobs() {
-    if (jobContainer.state.loading) {
-      return null;
-    }
-
     return <Jobs />;
   }
 

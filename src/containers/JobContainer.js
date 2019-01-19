@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { Container } from 'unstated';
 import positions from '../positions.json';
 
@@ -12,6 +11,7 @@ export default class JobContainer extends Container {
     job: {},
     page: 1,
     loading: true,
+    loadingMore: false,
   }
 
   async getJobs(page = 1) {
@@ -35,14 +35,5 @@ export default class JobContainer extends Container {
         resolve(true);
       }, 1000);
     });
-  }
-
-  async search() {
-    const client = axios.create();
-
-
-    client.get('https://api.airtable.com/v0/appGB6d93mmmaEpEe/Jobs?api_key=keyzczlUZR7b9TLiT')
-    //api key d2058f7df7c15bf5c8b648b87aa971f3
-    //
   }
 }
