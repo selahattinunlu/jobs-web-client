@@ -30,7 +30,15 @@ export default class Search extends Component {
   }
 
   async search() {
-    await jobContainer.search();
+    await jobContainer.setState({
+      loading: true
+    });
+
+    await jobContainer.getJobs();
+
+    await jobContainer.setState({
+      loading: false
+    });
   }
 
   render() {

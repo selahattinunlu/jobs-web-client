@@ -37,7 +37,7 @@ export default class Jobs extends Component {
 
     return (
       <Fragment>
-        Showing {10 * jobContainer.state.page} of <span>{jobContainer.state.totalJobs}</span> jobs
+        Showing <span>{jobContainer.state.jobs.length}</span> jobs
       </Fragment>
     )
   }
