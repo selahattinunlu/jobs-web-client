@@ -55,8 +55,6 @@ export default class Search extends Component {
                       value={job.state.query}
                       onChange={this.onChangeQuery.bind(this)}
                     />
-                  </div>
-                  <div className={style.searchInput}>
                     <Input
                       labelText={'Location'}
                       value={job.state.location}
