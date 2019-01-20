@@ -14,7 +14,25 @@ export default class JobContainer extends Container {
     loadingMore: false,
   }
 
-  async getJobs(page = 1) {
+  findJob(id) {
+    return new Promise((resolve, reject) => {
+      const job = positions.find(job => {
+        return job.id === id;
+      });
+
+      if (job) {
+        this.setState({
+          job: job
+        });
+      }
+
+      setTimeout(() => {
+        resolve(true);
+      }, 1000);
+    });
+  }
+
+  getJobs(page = 1) {
     return new Promise((resolve, reject) => {
       let jobs = [];
 

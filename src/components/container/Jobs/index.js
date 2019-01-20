@@ -10,7 +10,7 @@ export default class Jobs extends Component {
   renderJobs() {
     if (jobContainer.state.loading) {
       return (
-        <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <Loader type="Grid" color="#df6f81" height={50} width={50} />
         </div>
       );
@@ -64,7 +64,7 @@ export default class Jobs extends Component {
 
     if (state.loadingMore) {
       return (
-        <div style={{display: 'flex', justifyContent: 'center', marginTop: 20}}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
           <Loader type="Oval" color="#df6f81" height={50} width={50} />
         </div>
       )
@@ -77,7 +77,7 @@ export default class Jobs extends Component {
     return (
       <Button
         text={'Load More'}
-        style={{marginTop: 30}}
+        style={{ marginTop: 30 }}
         onClick={this.loadMore.bind(this)}
       />
     );
@@ -90,15 +90,17 @@ export default class Jobs extends Component {
           return (
             <div className={style.jobs}>
               <div className="container">
-                <div className={style.jobsGrid}>
-                  <div className={style.description}>
-                    {this.renderResultDescription()}
+                <div className="layout">
+                  <div className="main">
+                    <div className={style.description}>
+                      {this.renderResultDescription()}
+                    </div>
+                    <div className={style.jobBoxes}>
+                      {this.renderJobs()}
+                      {this.renderLoadMoreButton()}
+                    </div>
                   </div>
-                  <div className={style.jobBoxes}>
-                    {this.renderJobs()}
-                    {this.renderLoadMoreButton()}
-                  </div>
-                  <div className={style.side}>
+                  <div className="side">
                   </div>
                 </div>
               </div>

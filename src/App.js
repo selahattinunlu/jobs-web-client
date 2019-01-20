@@ -4,7 +4,6 @@ import { Switch, Route } from "react-router-dom";
 import './style/app.scss';
 
 import Header from './components/presentational/Header';
-import Search from './components/container/Search';
 
 import Home from './pages/Home';
 import Job from './pages/Job';
@@ -14,7 +13,7 @@ class App extends Component {
     return (
       <Fragment>
         <Header title={'Engineering Jobs'} />
-        <Search />
+
 
         <Switch>
           <Route path="/" exact component={Home} />

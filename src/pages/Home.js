@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Subscribe } from 'unstated';
 import Jobs from '../components/container/Jobs';
+import Search from '../components/container/Search';
 
 import { jobContainer } from '../containers';
 
@@ -25,6 +26,7 @@ export default class Home extends Component {
         {job => {
           return (
             <Fragment>
+              <Search />
               {this.renderJobs()}
             </Fragment>
           )
